@@ -1,6 +1,6 @@
 # Jukebox Looping
 
-![The Jukebox Looping mod icon](src/main/resources/assets/jukebox_looping/icon_high_res.png)
+![The Jukebox Looping mod icon](images/icon_high_res.png)
 
 Changes Jukeboxes so that when a disc finishes playing, instead of just stopping, the song loops.
 
@@ -12,3 +12,5 @@ Since hoppers are block entities, songs won't loop, and any creation using them 
 
 This can also be used to make non-looping jukeboxes if you need to;
 simply place it above a block entity that doesn't interact with Jukeboxes (e.g. Barrels) and the song won't loop.
+
+![A screenshot of a Jukebox in a meadow during a sunset](images/sunset.png)
