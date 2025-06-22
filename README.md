@@ -11,6 +11,6 @@ This allows redstone contraptions that use discs, such as disc shufflers, to con
 Since hoppers are block entities, songs won't loop, and any creation using them can simply take the disc out as normal.
 
 This can also be used to make non-looping jukeboxes if you need to;
-simply place it above a block entity that doesn't interact with Jukeboxes (e.g. Barrels) and the song won't loop.
+simply place the jukebox above a block entity that won't interact with it (e.g. Barrels) and the song won't loop.
 
 ![A screenshot of a Jukebox in a meadow during a sunset](images/sunset.png)
