@@ -8,9 +8,16 @@
 		"Pneumono_"
 	],
 	"contact": {
-		"homepage": "https://github.com/PneumonoIsNotAvailable/JukeboxLooping",
+		"homepage": "https://modrinth.com/mod/jukebox_looping",
 		"sources": "https://github.com/PneumonoIsNotAvailable/JukeboxLooping",
 		"issues": "https://github.com/PneumonoIsNotAvailable/JukeboxLooping/issues"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/jukebox_looping"
+			}
+		}
 	},
 	"license": "MIT",
 	"icon": "assets/jukebox_looping/icon.png",
