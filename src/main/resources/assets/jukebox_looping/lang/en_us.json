@@ -1,0 +1,5 @@
+{
+    "modmenu.nameTranslation.jukebox_looping": "Jukebox Looping",
+    "modmenu.summaryTranslation.jukebox_looping": "Changes Jukeboxes to loop discs.",
+    "modmenu.descriptionTranslation.jukebox_looping": "Changes Jukeboxes to loop discs.\n\nJukeboxes don't loop when placed above block entities, such as Hoppers, so that redstone contraptions using them can still work."
+}
