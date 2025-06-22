@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "net.pneumono.jukebox_looping.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [],
+	"mixins": [
+		"JukeboxManagerMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}
