@@ -4,6 +4,7 @@ package net.pneumono.jukebox_looping.mixin;
 /*import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.block.entity.JukeboxBlockEntity;
+import net.pneumono.jukebox_looping.JukeboxLooping;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -19,7 +20,7 @@ public abstract class JukeboxBlockEntityMixin {
             )
     )
     public void stopPlayingOrLoop(JukeboxBlockEntity jukebox, Operation<Void> original) {
-        if (Objects.requireNonNull(jukebox.getWorld()).getBlockEntity(jukebox.getPos().down()) == null) {
+        if (JukeboxLooping.shouldJukeboxLoop(Objects.requireNonNull(jukebox.getWorld()), jukebox.getPos())) {
             jukebox.startPlaying();
         } else {
             original.call(jukebox);
