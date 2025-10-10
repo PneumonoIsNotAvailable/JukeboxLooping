@@ -1,5 +1,6 @@
 package net.pneumono.jukebox_looping.mixin;
 
+//? if >=1.21 {
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.block.BlockState;
@@ -41,3 +42,4 @@ public abstract class JukeboxManagerMixin {
         }
     }
 }
+//?}

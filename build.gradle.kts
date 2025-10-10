@@ -39,6 +39,17 @@ tasks {
 				)
 			)
 		}
+
+		val mixin = if (stonecutter.eval(stonecutter.current.version, ">=1.21"))
+			"JukeboxManagerMixin" else "JukeboxBlockEntityMixin"
+
+		filesMatching("jukebox_looping.mixins.json") {
+			expand(
+				mutableMapOf(
+					"mixin" to mixin
+				)
+			)
+		}
 	}
 
 	withType<JavaCompile> {
