@@ -1,5 +1,2 @@
-- Added support for 1.21.9 and 1.21.10
-- Added jukebox_looping:force_loop block tag
-  - Jukeboxes placed above blocks in this tag will always loop, even if they aren't block entities
-- Added jukebox_looping:block_loop block tag
-  - Jukeboxes placed above blocks in this tag will never loop, even if they are block entities
+- Fixed Minecraft version being used for FMJ mod version
+  - Caused issues such as Mod Menu displaying the mod version as "1.21"
