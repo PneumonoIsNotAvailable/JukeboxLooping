@@ -1,2 +1,1 @@
-- Fixed Minecraft version being used for FMJ mod version
-  - Caused issues such as Mod Menu displaying the mod version as "1.21"
+- Added support for 1.21.11
