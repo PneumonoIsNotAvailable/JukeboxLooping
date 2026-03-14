@@ -78,10 +78,13 @@ publishMods {
 	type = STABLE
 	modLoaders.addAll("fabric", "quilt")
 
-	dryRun = providers.environmentVariable("MODRINTH_TOKEN").getOrNull() == null
+	val modrinthToken = providers.environmentVariable("MODRINTH_TOKEN")
+	val discordToken = providers.environmentVariable("DISCORD_TOKEN")
+
+	dryRun = modrinthToken.getOrNull() == null || discordToken.getOrNull() == null
 
 	modrinth {
-		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		accessToken = modrinthToken
 		projectId = "8G8TjZrI"
 
 		minecraftVersionRange {
@@ -92,6 +95,18 @@ publishMods {
 		requires {
 			// Fabric API
 			id = "P7dR8mSH"
+		}
+	}
+
+	if (stonecutter.current.project == "1.21") {
+		discord {
+			webhookUrl = discordToken
+
+			username = "Jukebox Looping Updates"
+
+			avatarUrl = "https://github.com/PneumonoIsNotAvailable/JukeboxLooping/blob/master/src/main/resources/assets/jukebox_looping/icon.png?raw=true"
+
+			content = changelog.map { "# Jukebox Looping version ${project.property("mod_version")}\n<@&1472490332783378472>\n" + it }
 		}
 	}
 }
