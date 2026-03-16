@@ -1,1 +1,3 @@
-- Added support for 1.21.11
+- Added support for Pirate Speak and LOLCAT
+- Added extra description of features to Mod Menu description
+- Added more links to Mod Menu description
