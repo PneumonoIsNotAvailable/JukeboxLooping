@@ -1,3 +1,1 @@
-- Added support for Pirate Speak and LOLCAT
-- Added extra description of features to Mod Menu description
-- Added more links to Mod Menu description
+- Added support for 26.1(.X)
