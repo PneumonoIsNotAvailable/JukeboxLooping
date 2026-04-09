@@ -1,5 +1,3 @@
-//~ identifier_replacements
-
 package net.pneumono.jukebox_looping;
 
 import net.fabricmc.api.ModInitializer;

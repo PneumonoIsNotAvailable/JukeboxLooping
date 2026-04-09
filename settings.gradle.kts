@@ -12,10 +12,16 @@ plugins {
 }
 
 stonecutter {
-	centralScript = "build.gradle.kts"
-
 	create(rootProject) {
-		versions("1.20", "1.21")
+		fun controlledVersions(vararg versions: String) = versions.forEach {
+			if (stonecutter.eval(it, ">=26.1")) {
+				version(it).buildscript = "build.noremap.gradle.kts"
+			} else {
+				version(it).buildscript = "build.remap.gradle.kts"
+			}
+		}
+
+		controlledVersions("1.20", "1.21", "26.1")
 		vcsVersion = "1.21"
 	}
 }

@@ -1,11 +1,10 @@
 plugins {
-	id("fabric-loom") version "1.15-SNAPSHOT"
+	id("net.fabricmc.fabric-loom") version "1.15-SNAPSHOT"
 	id("maven-publish")
 	id("me.modmuss50.mod-publish-plugin") version "1.0.0"
 }
 
-val javaVersion = if (stonecutter.eval(stonecutter.current.version, ">=1.20.5"))
-	JavaVersion.VERSION_21 else JavaVersion.VERSION_17
+val javaVersion = JavaVersion.VERSION_25
 java.targetCompatibility = javaVersion
 java.sourceCompatibility = javaVersion
 
@@ -18,25 +17,22 @@ repositories {
 
 dependencies {
 	minecraft("com.mojang:minecraft:${stonecutter.current.version}")
-	mappings(loom.officialMojangMappings())
-	modImplementation("net.fabricmc:fabric-loader:0.16.14")
+	implementation("net.fabricmc:fabric-loader:0.18.4")
 
 	// Fabric API
-	modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
+	implementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
 }
 
 tasks {
 	processResources {
 		inputs.property("version", project.version)
-		inputs.property("min_supported", project.property("min_supported_version"))
-		inputs.property("max_supported", project.property("max_supported_version"))
+		inputs.property("supported_versions", "~${project.property("min_supported_version")}")
 
 		filesMatching("fabric.mod.json") {
 			expand(
 				mutableMapOf(
 					"version" to project.version,
-					"min_supported" to project.property("min_supported_version"),
-					"max_supported" to project.property("max_supported_version")
+					"supported_versions" to "~${project.property("min_supported_version")}"
 				)
 			)
 		}
@@ -54,8 +50,7 @@ tasks {
 	}
 
 	withType<JavaCompile> {
-		val java = if (stonecutter.eval(stonecutter.current.version, ">=1.20.5")) 21 else 17
-		options.release.set(java)
+		options.release.set(25)
 	}
 
 	java {
@@ -77,8 +72,8 @@ stonecutter {
 }
 
 publishMods {
-	file = tasks.remapJar.get().archiveFile
-	additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
+	file = tasks.jar.map { it.archiveFile.get() }
+	additionalFiles.from(tasks.named<org.gradle.jvm.tasks.Jar>("sourcesJar").map { it.archiveFile.get() })
 	displayName = "Jukebox Looping ${project.version}"
 	version = "${project.version}"
 	changelog = rootProject.file("CHANGELOG.md").readText()
@@ -105,7 +100,7 @@ publishMods {
 		}
 	}
 
-	if (stonecutter.current.project == "1.21") {
+	if (stonecutter.current.project == "26.1") {
 		discord {
 			webhookUrl = discordToken
 
