@@ -27,7 +27,7 @@ jobs:
 
       - name: build
         run: |
-          ./gradlew :1.21.6:build
+          ./gradlew :1.20:build
   build-1-21:
     runs-on: ubuntu-22.04
     steps:
@@ -48,7 +48,7 @@ jobs:
 
       - name: build
         run: |
-          ./gradlew :1.21.9:build
+          ./gradlew :1.21:build
   build-26-1:
     runs-on: ubuntu-22.04
     steps:
