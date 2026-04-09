@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
 	minecraft("com.mojang:minecraft:${stonecutter.current.version}")
-	mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+	mappings(loom.officialMojangMappings())
 	modImplementation("net.fabricmc:fabric-loader:0.16.14")
 
 	// Fabric API
@@ -42,7 +42,7 @@ tasks {
 		}
 
 		val mixin = if (stonecutter.eval(stonecutter.current.version, ">=1.21"))
-			"JukeboxManagerMixin" else "JukeboxBlockEntityMixin"
+			"JukeboxSongPlayerMixin" else "JukeboxBlockEntityMixin"
 
 		filesMatching("jukebox_looping.mixins.json") {
 			expand(
@@ -66,6 +66,13 @@ tasks {
 		from("LICENSE") {
 			rename { "${it}_${base.archivesName.get()}"}
 		}
+	}
+}
+
+stonecutter {
+	replacements.string {
+		direction = eval(current.version, ">=1.21.11")
+		replace("ResourceLocation", "Identifier")
 	}
 }
 

@@ -6,4 +6,4 @@ stonecutter.tasks {
     order("publishModrinth")
 }
 
-stonecutter active "1.21"
+stonecutter active "1.20"
