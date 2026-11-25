@@ -4,6 +4,8 @@
 
 ![The Jukebox Looping mod icon](images/icon_high_res.png)
 
+**This mod will not be updated past 26.4, as the Jukebox Playlist feature makes this mod obsolete.**
+
 Changes Jukeboxes so that when a disc finishes playing, instead of just stopping, the song loops.
 
 The mod doesn't need to be installed client-side, it works fine when installed only on the server.
